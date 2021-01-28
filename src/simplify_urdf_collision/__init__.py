@@ -1,0 +1,1 @@
+from simplify_urdf_collision.boundingbox_pywrapper import BoundingBox
