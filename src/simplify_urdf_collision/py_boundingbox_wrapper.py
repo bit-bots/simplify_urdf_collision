@@ -1,7 +1,7 @@
 from simplify_urdf_collision.py_boundingbox import PyOptimalBoundingBox, create_optimal_bounding_box
 
 
-class PyWalk(object):
+class PyBoundingBoxWrapper(object):
     def __init__(self):
         self.optimal_bounding_box = PyOptimalBoundingBox()
 
