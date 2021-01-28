@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>simplify_urdf_collision</name>
+  <version>0.0.1</version>
+  <description>This package provides a simplification of URDF collision models based on optimal bounding boxes.</description>
+
+  <maintainer email="5guelden@informatik.uni-hamburg.de">Jasper Güldenstein</maintainer>
+  <maintainer email="bestmann@informatik.uni-hamburg.de">Marc Bestman</maintainer>
+  <maintainer email="info@bit-bots.de">Hamburg Bit-Bots</maintainer>
+
+  <author email="5guelden@informatik.uni-hamburg.de">Jasper Güldenstein</author>
+  <author email="bestmann@informatik.uni-hamburg.de">Marc Bestmann</author>
+  <author email="info@bit-bots.de">Hamburg Bit-Bots</author>
+
+  <license>MIT</license>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>rosconsole</depend>
+
+  <export>
+    <bitbots_documentation>
+      <status>untested</status>
+      <language>c++</language>
+    </bitbots_documentation>
+  </export>
+</package>
