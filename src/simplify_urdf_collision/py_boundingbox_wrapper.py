@@ -1,9 +1,5 @@
-from simplify_urdf_collision.py_boundingbox import PyOptimalBoundingBox, create_optimal_bounding_box
+from simplify_urdf_collision.optimal_bounding_box import create_optimal_bounding_box
 
 
-class PyBoundingBoxWrapper(object):
-    def __init__(self):
-        self.optimal_bounding_box = PyOptimalBoundingBox()
-
-    def create_optimal_bounding_box(self, path_to_stl):
-        return self.optimal_bounding_box.create_optimal_bounding_box(path_to_stl)
+def create_optimal_bounding_box(path_to_stl):
+    return create_optimal_bounding_box(path_to_stl)

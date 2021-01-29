@@ -1,1 +1,1 @@
-from simplify_urdf_collision.boundingbox_pywrapper import BoundingBox
+from simplify_urdf_collision.optimal_bounding_box import create_optimal_bounding_box
