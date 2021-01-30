@@ -1,0 +1,33 @@
+<robot name="testboii">
+<link name="first">
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://wolfgang_description/urdf/nuc_holder_right_front.stl"/>
+        </geometry>
+    </visual>
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mesh filename="package://wolfgang_description/urdf/nuc_holder_right_front.stl"/>
+    </collision>
+</link>
+<link name="second">
+    <visual>
+        <origin xyz="1 0 0" rpy="1.2 0 0" />
+        <geometry>
+            <box size="1 1 1" />
+        </geometry>
+    </visual>
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <box size="1 1 1" />
+        </geometry>
+    </collision>
+</link>
+<joint name="blub" type="fixed">
+    <parent link="first"/>
+    <child link="second" />
+    <origin rpy="0.0 0 0" xyz="1 0 0"/>
+</joint>
+</robot>

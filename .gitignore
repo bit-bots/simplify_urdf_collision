@@ -16,7 +16,7 @@
 
 **/.idea/
 **/cmake-build-debug/
-
+**/.vscode/*
 # Sensitive or high-churn files:
 .idea/dataSources/
 .idea/dataSources.ids
@@ -202,3 +202,7 @@ ENV/
 **/docs/_out
 **/docs/cppapi
 **/docs/pyapi
+
+
+# cgal library
+CGAL-5.2/*
