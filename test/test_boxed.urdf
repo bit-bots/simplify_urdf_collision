@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<robot name="testbot" version="1.0">
+  <link name="base_link">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.3 0.2"/>
+      <geometry>
+        <mesh filename="package://wolfgang_description/urdf/nuc_holder_left_back.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0.8621700341890769 1.5707963267948966 0.0" xyz="0.0020861935267543277 0.2915112547987443 0.2150000008288771"/>
+      <geometry>
+        <box size="0.014151188422283276 0.026739361335659996 0.03800000203773379"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>

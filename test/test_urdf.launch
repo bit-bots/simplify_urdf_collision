@@ -1,7 +1,7 @@
 <launch>
     <!--<param name="robot_description" command="cat $(find simplify_urdf_collision)/test/wolfgang_old.urdf" />-->
+    <!--<param name="robot_description" command="cat $(find simplify_urdf_collision)/test/wolfgang_boxed.urdf" />-->
     <param name="robot_description" command="cat $(find simplify_urdf_collision)/test/wolfgang_boxed.urdf" />
-    <!--<param name="robot_description" command="cat $(find simplify_urdf_collision)/test/test.urdf" />-->
     
     <node name="rviz" pkg="rviz" type="rviz"/>
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">        

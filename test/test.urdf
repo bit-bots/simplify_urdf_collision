@@ -1,17 +1,19 @@
-<robot name="testboii">
-<link name="first">
+<robot name="testbot">
+<link name="base_link">
     <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0.3 0.2" rpy="0 0 0" />
         <geometry>
-            <mesh filename="package://wolfgang_description/urdf/nuc_holder_right_front.stl"/>
+            <mesh filename="package://wolfgang_description/urdf/nuc_holder_left_back.stl"/>
         </geometry>
     </visual>
     <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <mesh filename="package://wolfgang_description/urdf/nuc_holder_right_front.stl"/>
+        <origin xyz="0 0.3 0.2" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://wolfgang_description/urdf/nuc_holder_left_back.stl" />
+        </geometry>
     </collision>
 </link>
-<link name="second">
+<!--<link name="second">
     <visual>
         <origin xyz="1 0 0" rpy="1.2 0 0" />
         <geometry>
@@ -29,5 +31,5 @@
     <parent link="first"/>
     <child link="second" />
     <origin rpy="0.0 0 0" xyz="1 0 0"/>
-</joint>
+</joint>-->
 </robot>
