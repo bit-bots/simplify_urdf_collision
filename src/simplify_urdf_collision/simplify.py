@@ -9,6 +9,7 @@ import simplify_urdf_collision
 import transforms3d
 import numpy as np
 from urdf_parser_py.urdf import Box 
+from color import COLORS
 
 TMP_MESH_FILENAME = "/tmp/temp_mesh.off"
 
@@ -34,32 +35,21 @@ if __name__ == "__main__":
             resolved_filename = c.geometry.filename
             if args.ros:
                 resolved_filename = resource_retriever.get_filename(resolved_filename, use_protocol=False)
-            
-            # load mesh and resave it as .off file
             mesh = trimesh.load(resolved_filename)
-            off_string = trimesh.exchange.off.export_off(mesh, digits=10)
-            off_file = open(TMP_MESH_FILENAME, "w+")
-            off_file.write(off_string)
-            off_file.close()
 
-            
-            bb_tf_and_size = simplify_urdf_collision.create_optimal_bounding_box(TMP_MESH_FILENAME)
-            bb_tf_affine = np.reshape(bb_tf_and_size[0], (4,4)) 
+            bb_tf = np.linalg.inv(np.matrix(mesh.apply_obb()))
+            bb_bounds = mesh.bounding_box_oriented.bounds
+            bb_size = [bb_bounds[1][0]*2, bb_bounds[1][1]*2, bb_bounds[1][2]*2]
 
-            # todo eval rotation order
             original_rotation = transforms3d.euler.euler2mat(c.origin.rotation[0], c.origin.rotation[1], c.origin.rotation[2], axes="sxyz")
-            originial_tranformation_affine = transforms3d.affines.compose(T=c.origin.position, R=original_rotation, Z=[1,1,1])
+            original_transformation_affine = transforms3d.affines.compose(T=c.origin.position, R=original_rotation, Z=[1,1,1])
 
-            new_affine = np.matmul(bb_tf_affine, originial_tranformation_affine)
-
+            new_affine = np.matmul(original_transformation_affine, bb_tf)
             T,R,_,_ = transforms3d.affines.decompose44(new_affine)
             c.origin.position = T
             c.origin.rotation = list(transforms3d.euler.mat2euler(R, axes="sxyz"))
-            b = Box(bb_tf_and_size[1])
+            b = Box(bb_size)
             c.geometry = b
         i +=1
-    
+    print(f"{COLORS.OKGREEN}Writing urdf to {args.output_urdf}{COLORS.ENDC}")
     urdf_handler.write_urdf(args.output_urdf)
-
-    # collision box is first translated, then rotated, therefore translation can stay the same, 
-    # rotation should be the rotation of the object by the rotation of the bounding box
