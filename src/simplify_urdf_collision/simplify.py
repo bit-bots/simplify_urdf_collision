@@ -5,7 +5,6 @@ from urdf_handler import URDFHandler
 from scipy.spatial.transform import Rotation
 import os
 import trimesh
-import simplify_urdf_collision 
 import transforms3d
 import numpy as np
 from urdf_parser_py.urdf import Box 
