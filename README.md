@@ -18,4 +18,4 @@ Run and usage
 
 Run the script with -h to get the usage options.
 
-```python src/simplify.py -h```
+```python src/simplify_urdf_collision/simplify.py -h```
