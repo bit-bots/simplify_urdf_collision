@@ -2,7 +2,6 @@
 
 import argparse
 from urdf_handler import URDFHandler
-from scipy.spatial.transform import Rotation
 import os
 import trimesh
 import transforms3d
